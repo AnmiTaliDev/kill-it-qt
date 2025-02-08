@@ -1,0 +1,2 @@
+/home/ruzen42/Programming/kill-it-gtk/build/linux/kill-it-gtk.pdb
+/home/ruzen42/Programming/kill-it-gtk/build/linux/kill-it-gtk
