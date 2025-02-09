@@ -7,7 +7,7 @@ class Program
     {
         Application.Init();
         var App = new KillIt();
-        App.Resizable = false;
+        App.Resizable = true;
         App.DeleteEvent += delegate
         {
             Console.WriteLine("App Closed");
