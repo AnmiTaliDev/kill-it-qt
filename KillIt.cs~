@@ -19,7 +19,7 @@ internal class KillIt : Window
     {
         SetDefaultSize(300, 100);
         SetPosition(WindowPosition.Center);
-        SetBorderWidth = 10;
+        BorderWidth = 10;
 
         _name = new Label("Want to fucking Kill It?");
 

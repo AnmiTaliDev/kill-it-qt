@@ -21,7 +21,7 @@ internal class KillIt : Window
         SetPosition(WindowPosition.Center);
         BorderWidth = 10;
 
-        _name = new Label("Want to fucking Kill It?");
+        _name = new Label("Want to Kill It? v1.2");
 
         _confirm = new Button("Power Off");
         _cancel = new Button("Cancel");
@@ -50,7 +50,7 @@ internal class KillIt : Window
 
     private void Confirm(object? sender, EventArgs e)
     {
-        Process.Start("sudo", "poweroff");
+        Process.Start("loginctl", "poweroff");
     }
 
     private void Suspend(object? sender, EventArgs e)
@@ -60,7 +60,7 @@ internal class KillIt : Window
 
     private void Reboot(object? sender, EventArgs e)
     {
-        Process.Start("sudo", "reboot");
+        Process.Start("loginctl", "reboot");
     }
     
     private void Cancel(object? sender, EventArgs e)
