@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/ruzen42/Programming/kill-it/kill-it-gtk.csproj": {}
+    "/home/ruzen42/src/kill-it/kill-it-gtk.csproj": {}
   },
   "projects": {
-    "/home/ruzen42/Programming/kill-it/kill-it-gtk.csproj": {
+    "/home/ruzen42/src/kill-it/kill-it-gtk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ruzen42/Programming/kill-it/kill-it-gtk.csproj",
+        "projectUniqueName": "/home/ruzen42/src/kill-it/kill-it-gtk.csproj",
         "projectName": "kill-it-gtk",
-        "projectPath": "/home/ruzen42/Programming/kill-it/kill-it-gtk.csproj",
+        "projectPath": "/home/ruzen42/src/kill-it/kill-it-gtk.csproj",
         "packagesPath": "/home/ruzen42/.nuget/packages/",
-        "outputPath": "/home/ruzen42/Programming/kill-it/obj/",
+        "outputPath": "/home/ruzen42/src/kill-it/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ruzen42/.nuget/NuGet/NuGet.Config"

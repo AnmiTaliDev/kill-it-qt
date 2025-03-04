@@ -1,8 +1,6 @@
 using Gtk;
-using System;
 using System.Diagnostics;
-using System.Runtime.Loader;
-using Settings = GLib.Settings;
+using System.Timers;
 
 internal class KillIt : Window
 {
@@ -10,7 +8,10 @@ internal class KillIt : Window
     private Box _vertBox;
 
     private Label _name;
-
+    private Label _timerLabel;
+    private float _timeout;
+    private static System.Timers.Timer _timer;
+    
     private readonly Button _suspend;
 	private readonly Button _hibernate;
     private readonly Button _reboot;
@@ -22,9 +23,15 @@ internal class KillIt : Window
         SetDefaultSize(300, 100);
         SetPosition(WindowPosition.Center);
         BorderWidth = 10;
+        _timeout = settings.Timer;
+        _timer = new System.Timers.Timer(100);
+        _timer.Elapsed += UpdateTimer;
+        _timer.AutoReset = true;
+        _timer.Enabled = true;
 
         _name = new Label("Want to Kill It? v1.3");
         _cancel = new Button("Cancel");
+        _timerLabel = new Label($"Time to poweroff: {_timeout} ");
         
         _horizonBox = new Box(Orientation.Horizontal, 0);
 
@@ -61,6 +68,7 @@ internal class KillIt : Window
 
         _vertBox = new Box(Orientation.Vertical, 0);
         _vertBox.PackStart(_name, false, false, 5);
+        _vertBox.PackStart(_timerLabel, false, false, 10);
         _vertBox.PackStart(_horizonBox, false, false, 5);
         
         Add(_vertBox);
@@ -70,26 +78,39 @@ internal class KillIt : Window
     private void Hibernate(object? sender, EventArgs e)
     {
         Process.Start("loginctl", "hibernate");
+        System.Environment.Exit(0);
 	}
 
     private void Poweroff(object? sender, EventArgs e)
     {
         Process.Start("loginctl", "poweroff");
+        System.Environment.Exit(0);
     }
 
     private void Suspend(object? sender, EventArgs e)
     {
         Process.Start("loginctl", "suspend");
+        System.Environment.Exit(0);
     }
 
     private void Reboot(object? sender, EventArgs e)
     {
         Process.Start("loginctl", "reboot");
+        System.Environment.Exit(0);
     }
     
     private void Cancel(object? sender, EventArgs e)
     {
         System.Environment.Exit(0);
+    }
+
+    private void UpdateTimer(object? sender, ElapsedEventArgs e)
+    {
+        if (_timeout == 0)
+            Poweroff(new object(), null);
+        else if (_timeout > 0)
+            _timeout -= 0.1f;
+        _timerLabel.Text = "Time to poweroff: " + Math.Round(_timeout, 2);
     }
 }
 

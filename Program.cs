@@ -7,7 +7,6 @@ class Program
 {
 	private bool[] _modes;
 	private float _timer = 30f;
-
 	public struct Settings
 	{
 		public bool[] Modes { get; init; } = {true, true, true, true};
@@ -15,15 +14,15 @@ class Program
 
 		public Settings(bool[] modes, float timer)
 		{
-			for (byte i = 0; i <= Modes.Length; i++)
+			for (byte i = 0; i < Modes.Length; i++)
 			{
 				try
 				{
 					Modes[i] = modes[i];
 				}
-				catch
+				catch (Exception e)
 				{
-					Console.WriteLine("modes end");
+					Console.WriteLine(e);
 				}
 			}
 
@@ -151,7 +150,6 @@ class Program
 		}
 		
 		Settings result = new Settings(modes, timer);
-		Console.WriteLine(result.Modes[0]);
 		return result;
 	}
 }
