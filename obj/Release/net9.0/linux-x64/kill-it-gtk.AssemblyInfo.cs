@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kill-it-gtk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52dc3adca3add48dc2177d25f78abbd40e70fe85")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6fb4217842ca20d9801ffa5b2f05d95591252cc9")]
 [assembly: System.Reflection.AssemblyProductAttribute("kill-it-gtk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kill-it-gtk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
