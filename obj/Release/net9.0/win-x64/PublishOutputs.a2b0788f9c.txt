@@ -1,2 +1,0 @@
-/home/ruzen42/Programming/kill-it/build/windows/kill-it-gtk.pdb
-/home/ruzen42/Programming/kill-it/build/windows/kill-it-gtk.exe
