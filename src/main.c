@@ -1,35 +1,48 @@
 #include <gtk//gtk.h>
+#include <glib.h>
+#include <stdio.h>
 
-static void 
-print_hello (GtkWidget *widget,
-		     gpointer   data)
+static void
+on_poweroff_button_clicked (GtkWidget *widget,
+							gpointer   data)
 {
-	g_print("Hello world");
+    g_spawn_command_line_async ("loginctl poweroff", NULL);
 }
 
 static void
 activate (GtkApplication* app,
-		gpointer          user_data)
+		 gpointer          user_data)
 {
 	GtkWidget *window;
-	GtkWidget *button;
+
+	GtkWidget *cancel_button;
+	GtkWidget *poweroff_button;
+
 	GtkWidget *box;
 
 	window = gtk_application_window_new (app);
 	gtk_window_set_title (GTK_WINDOW (window), "kill it");
-	gtk_window_set_default_size (GTK_WINDOW (window), 200, 200); 
+	gtk_window_set_default_size (GTK_WINDOW (window), 400, 150); 
+
     GtkSettings *default_settings = gtk_settings_get_default();
-	box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_widget_set_halign (box, GTK_ALIGN_CENTER);
 	gtk_widget_set_valign (box, GTK_ALIGN_CENTER);
 	
 	gtk_window_set_child (GTK_WINDOW (window), box);
 
-	button = gtk_button_new_with_label ("Press");
-	g_signal_connect (button, "clicked", G_CALLBACK (print_hello), NULL);
-	g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_window_destroy), window);
+	cancel_button = gtk_button_new_with_label ("Cancel");
+	poweroff_button = gtk_button_new_with_label ("Poweroff");
 
-	gtk_box_append (GTK_BOX (box), button);
+    g_signal_connect_swapped (cancel_button, "clicked", G_CALLBACK (gtk_window_destroy), window);
+
+	g_signal_connect (poweroff_button, "clicked", G_CALLBACK (on_poweroff_button_clicked), NULL);
+	g_signal_connect_swapped (poweroff_button, "clicked", G_CALLBACK (gtk_window_destroy), window);
+	
+
+	gtk_box_append (GTK_BOX (box), cancel_button);
+	gtk_box_append (GTK_BOX (box), poweroff_button);
 
 	gtk_window_present (GTK_WINDOW (window));
 }

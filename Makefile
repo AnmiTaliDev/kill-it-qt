@@ -1,8 +1,20 @@
+CC=gcc
+CFLAGS=`pkg-config --cflags gtk4` -o main src/main.c `pkg-config --libs gtk4`
+
 all:
-	gcc `pkg-config --cflags gtk4` -O3 -o main src/main.c `pkg-config --libs gtk4`
+	@echo "Build..."
+	@$(CC) $(CFLAGS)
+
 clean:
-	rm main
+	@echo "Clean..."
+	@rm main
 
 run: all
-	./main
+	@echo "Run..."
+	@./main
 
+publish: all
+	@echo "Publish..."
+	@mkdir -p build
+	@cp main build/kill-it-gtk
+	
