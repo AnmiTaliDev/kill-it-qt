@@ -2,4 +2,5 @@ build
 *.exe
 *.pdb
 
-/build/
+.ccls-cache
+
