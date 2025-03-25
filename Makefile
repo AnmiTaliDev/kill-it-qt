@@ -7,7 +7,7 @@ all:
 
 clean:
 	@echo "Clean..."
-	@rm main
+	@rm main *.AppImage
 
 run: all
 	@echo "Run..."
@@ -17,4 +17,9 @@ publish: all
 	@echo "Publish..."
 	@mkdir -p build
 	@cp main build/kill-it-gtk
-	
+
+appimage: all
+	@echo "Building AppImage..."
+	@mkdir -p kill-it-gtk.AppDir
+	@chmod +x kill-it-gtk.AppDir/AppRun
+	@./build/appimagetool kill-it-gtk.AppDir
