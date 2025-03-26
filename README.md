@@ -27,22 +27,21 @@ sudo apt install build-essential libgtk-4-dev make
 Build and Run
 ``` Bash
 # Clone the repository:
-Copy
 
 git clone https://github.com/ruzen42/kill-it-gtk.git
 cd kill-it
 
 # Build the application:
-bash
-Copy
 
 make
 
 # Run the application:
-bash
-Copy
 
 ./main
+
+# Build a AppImage
+
+make appimage
 ```
 Usage
 
@@ -102,17 +101,13 @@ If you would like to contribute to the project, please:
 
 Author
 
-[Your Name]
-[Your Email]
-[Your GitHub Profile]
+Jaroslav Mihailenko
+linuxmalledefer@gmail.com
 Acknowledgments
 
     The GTK4 developers for their excellent library.
 
     The Linux community for inspiration and support.
-
-Copy
-
 
 ---
 
