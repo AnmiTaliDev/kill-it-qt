@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=`pkg-config --cflags gtk4` -o main src/main.c `pkg-config --libs gtk4`
+CFLAGS=`pkg-config --cflags gtk4` -O2 -o main src/main.c src/parse_config.c `pkg-config --libs gtk4`
 
 all:
 	@echo "Build..."
@@ -23,3 +23,11 @@ appimage: all
 	@mkdir -p kill-it-gtk.AppDir
 	@chmod +x kill-it-gtk.AppDir/AppRun
 	@./build/appimagetool kill-it-gtk.AppDir
+
+install: publish
+	@echo "Installing kill-it-gtk..."
+	@install build/kill-it-gtk /usr/bin
+
+uninstall: 
+	@echo "Uninstalling kill-it-gtk..."
+	@rm /usr/bin/kill-it-gtk
