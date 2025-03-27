@@ -20,6 +20,7 @@ publish: all
 
 appimage: all
 	@echo "Building AppImage..."
+	@cp main kill-it-gtk.AppDir/kill-it-gtk
 	@mkdir -p kill-it-gtk.AppDir
 	@chmod +x kill-it-gtk.AppDir/AppRun
 	@./build/appimagetool kill-it-gtk.AppDir

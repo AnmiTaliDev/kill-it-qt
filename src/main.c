@@ -5,6 +5,15 @@
 
 static parse_result config;
 
+void 
+set_margins (GtkWidget *widget, int margin) 
+{
+    gtk_widget_set_margin_start (widget, margin);
+    gtk_widget_set_margin_end (widget, margin);
+    gtk_widget_set_margin_top (widget, margin);
+    gtk_widget_set_margin_bottom (widget, margin);
+}
+
 static void
 on_poweroff_button_clicked (GtkWidget *widget,
 							gpointer   data)
@@ -56,8 +65,11 @@ activate (GtkApplication* app,
     GtkSettings *default_settings = gtk_settings_get_default();
     gtk_window_set_resizable(window, FALSE);
 
-	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL,10);
 	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 10);
+	box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL,10);
+
+    set_margins(vbox, 10);
+    
 	gtk_widget_set_halign (box, GTK_ALIGN_CENTER);
 	gtk_widget_set_valign (box, GTK_ALIGN_CENTER);
 	
