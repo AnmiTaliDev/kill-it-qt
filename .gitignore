@@ -1,6 +1,7 @@
-build
+build/
+builddir/
 *.exe
 *.pdb
 
 .ccls-cache
-
+apg/

@@ -1,24 +1,22 @@
-#ifndef PARSER_H
-#define PARSER_H
+#ifndef PARSE_CONFIG_H
+#define PARSE_CONFIG_H
 
-#include <stdbool.h>
+#include <string>
 
-typedef struct 
-{
-    bool poweroff_enabled;
-    bool suspend_enabled;
-    bool reboot_enabled;
-    bool hibernate_enabled;
+struct ParseResult {
+    bool poweroff_enabled = true;
+    bool suspend_enabled = true;
+    bool reboot_enabled = true;
+    bool hibernate_enabled = true;
 
-    char poweroff_command[256];
-    char suspend_command[256];
-    char reboot_command[256];
-    char hibernate_command[256];
+    std::string poweroff_command;
+    std::string suspend_command;
+    std::string reboot_command;
+    std::string hibernate_command;
 
-    bool success_parse;
-} parse_result;
+    bool success_parse = false;
+};
 
-parse_result parse_config ();
+ParseResult parseConfig();
 
-#endif
-
+#endif // PARSE_CONFIG_H
