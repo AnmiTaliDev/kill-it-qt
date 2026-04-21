@@ -2,7 +2,7 @@ project('kill-it-qt', 'cpp',
   version : '1.4',
   default_options : [
     'warning_level=3',
-    'cpp_std=c++17',
+    'cpp_std=C++17',
     'buildtype=release'
   ],
   license : 'GPL-3.0-or-later',
@@ -17,20 +17,27 @@ project_url = 'https://github.com/AnmiTaliDev/kill-it-qt'
 qt6 = import('qt6')
 qt6_dep = dependency('qt6', modules: ['Core', 'Widgets'])
 
+# Include directories
+inc_dirs = include_directories('include')
+
 # Source files
 sources = files(
   'src/main.cpp',
-  'src/parse_config.cpp'
+  'src/ui.cpp',
+  'src/core/power_manager.cpp',
+  'src/core/parse_config.cpp'
 )
 
 # Header files
 headers = files(
-  'src/parse_config.h'
+  'include/kill_it_widget.hpp',
+  'include/core/power_manager.hpp',
+  'include/core/parse_config.hpp'
 )
 
-# Process Qt MOC files (for Q_OBJECT)
+# Process Qt MOC files
 moc_files = qt6.compile_moc(
-  sources : 'src/main.cpp',
+  headers : 'include/kill_it_widget.hpp',
   extra_args : ['-DMOC_OUTPUT']
 )
 
@@ -39,7 +46,7 @@ executable('kill-it-qt',
   sources,
   moc_files,
   dependencies : qt6_dep,
-  include_directories : include_directories('src'),
+  include_directories : inc_dirs,
   install : true,
   install_dir : get_option('bindir')
 )
