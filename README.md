@@ -1,8 +1,6 @@
 # Kill It: Power Management App (Qt6 for Linux)
 
 ![GitHub License](https://img.shields.io/github/license/AnmiTaliDev/kill-it-qt?style=for-the-badge)
-![GitHub Release](https://img.shields.io/github/v/release/AnmiTaliDev/kill-it-qt?style=for-the-badge)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/AnmiTaliDev/kill-it-qt/latest?style=for-the-badge&color=red)
 
 **Kill It** is a simple Qt6 application that allows you to manage your Linux computer's power. It supports the following features:
 - Shutdown
@@ -109,29 +107,7 @@ hibernate-enabled=false
 
 If the configuration file is missing, the application uses default commands and all buttons are enabled.
 
-## Features
-
-- **Modern Qt6 Interface**: Clean and responsive user interface
-- **Fast Build System**: Uses Meson for quick compilation
-- **Configurable**: Customize commands and button visibility
-- **Cross-platform**: Works on any Linux distribution
-- **Lightweight**: Minimal dependencies and small footprint
-- **Safe**: Confirmation required before executing power commands
-
 ## Development
-
-### Project Structure
-```
-kill-it-qt/
-├── src/
-│   ├── main.cpp           # Main application and UI
-│   ├── parse_config.cpp   # Configuration file parser
-│   └── parse_config.h     # Configuration structures
-├── meson.build            # Meson build configuration
-├── README.md              # This file
-├── LICENSE                # GPL v3 license
-└── .gitignore            # Git ignore rules
-```
 
 ### Building for Development
 ```bash
@@ -175,25 +151,6 @@ Based on the original GTK version by Jaroslav Mihailenko
 ## Acknowledgments
 
 - The Qt6 developers for their excellent framework
-- The Meson developers for the fast build system
+- The Meson developers for the build system
 - The Linux community for inspiration and support
-- Original GTK version developers
-
-## Changelog
-
-### v1.4
-- Ported from GTK4 to Qt6
-- Switched from Make to Meson build system
-- Improved configuration file parsing
-- Added support for enable/disable flags
-- Enhanced error handling
-- Modern C++17 codebase
-
----
-
-### Key Features:
-1. **Modern**: Built with Qt6 and C++17 for performance and maintainability
-2. **Fast**: Meson build system provides quick compilation
-3. **Configurable**: Extensive customization through configuration files
-4. **Cross-platform**: Works on all major Linux distributions
-5. **Lightweight**: Minimal resource usage and dependencies
+- Original GTK version developer (ruzen42)
